@@ -1,0 +1,7 @@
+<%= form_for @game, url: {action: "update"} do |f| %>
+
+<%= render :partial => 'games/form', :object => f %>
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>

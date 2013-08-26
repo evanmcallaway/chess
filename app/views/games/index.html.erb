@@ -1,0 +1,11 @@
+<%= link_to 'New Game', new_game_path %>
+<%= content_tag :ul do %>
+	<% @games.each do |game| %>
+		<%= content_tag :li do %>
+			<%= game.pgn %>
+			<%= link_to 'edit', edit_game_path(game) %>
+			<%= link_to 'delete', game_path(game), :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to 'export', export_game_path(game) %>
+		<% end %>
+	<% end %>
+<% end %>

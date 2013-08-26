@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chess</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<% if flash[:error] %>
+	  <p class='error'><%=h flash[:error] %></p>
+	<% end %>
+	<% if flash[:notice] %>
+	  <p class='notice'><%=h flash[:notice] %></p>
+	<% end %>
+	<% if user_signed_in? %>
+		<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+	<% else %>
+		<%= link_to "Sign in", new_user_session_path %> or <%= link_to "Regiser", new_registration_path(:user) %>
+	<% end %>
+	<br/>
+	<%= yield %>
+</body>
+</html>
